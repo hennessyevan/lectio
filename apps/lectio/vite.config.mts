@@ -1,7 +1,10 @@
 /// <reference types='vitest' />
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
-import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import { VitePWA } from 'vite-plugin-pwa'
+import mkcert from 'vite-plugin-mkcert'
+import crossOriginIsolation from 'vite-plugin-cross-origin-isolation'
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin'
 
 export default defineConfig({
   root: __dirname,
@@ -17,12 +20,22 @@ export default defineConfig({
     host: 'localhost',
   },
 
-  plugins: [react(), nxViteTsPaths()],
+  plugins: [
+    react(),
+    VitePWA({ registerType: 'autoUpdate', injectRegister: 'auto' }),
+    nxViteTsPaths(),
+    mkcert(),
+    crossOriginIsolation(),
+  ],
+
+  optimizeDeps: {
+    exclude: ['sqlocal'],
+  },
 
   // Uncomment this if you are using workers.
-  // worker: {
-  //  plugins: [ nxViteTsPaths() ],
-  // },
+  worker: {
+    plugins: () => [nxViteTsPaths()],
+  },
 
   build: {
     outDir: '../../dist/apps/lectio',
@@ -46,4 +59,4 @@ export default defineConfig({
       provider: 'v8',
     },
   },
-});
+})
