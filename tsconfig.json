@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@lectio/ui/": ["packages/ui/src/index.ts"],
+      "@lectio/ui/*": ["packages/ui/src/*"]
+    }
+  }
+}
