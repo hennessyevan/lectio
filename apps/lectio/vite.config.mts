@@ -13,11 +13,19 @@ export default defineConfig({
   server: {
     port: 4200,
     host: 'localhost',
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin',
+    },
   },
 
   preview: {
     port: 4300,
     host: 'localhost',
+    headers: {
+      'Cross-Origin-Embedder-Policy': 'require-corp',
+      'Cross-Origin-Opener-Policy': 'same-origin',
+    },
   },
 
   plugins: [
