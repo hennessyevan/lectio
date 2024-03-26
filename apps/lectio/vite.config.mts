@@ -30,7 +30,14 @@ export default defineConfig({
 
   plugins: [
     react(),
-    VitePWA({ registerType: 'autoUpdate', injectRegister: 'auto' }),
+    VitePWA({
+      registerType: 'autoUpdate',
+      injectRegister: 'auto',
+      pwaAssets: { preset: 'minimal-2023' },
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg,wasm}'],
+      },
+    }),
     nxViteTsPaths(),
     mkcert(),
     crossOriginIsolation(),
