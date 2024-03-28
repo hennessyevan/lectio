@@ -3,7 +3,6 @@ import {
   Select,
   SelectContent,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
   Separator,
@@ -14,6 +13,8 @@ import { useState } from 'react'
 import { db } from '../db'
 import { books } from '../db/books'
 import { verses } from '../db/verses'
+import { useLiturgicalDay } from '../hooks/useLiturgicalDay'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 async function getVerse({
   queryKey,
@@ -31,8 +32,13 @@ async function getVerse({
 }
 
 export function App() {
-  const [currentBook, setCurrentBook] = useState<string | number>(10)
-  const [chapter, setChapter] = useState<string | number>(1)
+  const { today } = useLiturgicalDay({})
+
+  const [currentBook, setCurrentBook] = useLocalStorage<string | number>(
+    'book',
+    10
+  )
+  const [chapter, setChapter] = useLocalStorage<string | number>('chapter', 1)
 
   const verseQuery = useQuery({
     queryKey: ['verse', +currentBook, +chapter],
@@ -63,14 +69,15 @@ export function App() {
   })
 
   return (
-    <div className="hidden space-y-6 p-10 pb-16 md:block">
+    <div className="space-y-6 p-10 pb-16 block">
       <div className="space-y-0.5">
         <h2 className="text-2xl font-bold tracking-tight">NRSVCE</h2>
         <p className="text-muted-foreground">Read the bible offline</p>
       </div>
       <Separator className="my-6" />
       <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-        <aside className="-mx-4 lg:w-1/5 flex flex-col gap-5">
+        <aside className="lg:w-1/5 flex flex-col gap-5">
+          {today?.id}
           <Select
             value={String(currentBook)}
             onValueChange={(value) => setCurrentBook(+value)}
@@ -107,7 +114,10 @@ export function App() {
         </aside>
         <div className="flex-1 lg:max-w-2xl font-serif">
           {verseQuery.data?.map((verse) => (
-            <span id={verse.id} key={verse.id} data-number={verse.verse}>
+            <span id={verse.id} key={verse.id}>
+              <span className="text-xs relative -top-2 pr-1 text-gray-500">
+                {verse.verse}
+              </span>
               {verse.text + ' '}
             </span>
           ))}
