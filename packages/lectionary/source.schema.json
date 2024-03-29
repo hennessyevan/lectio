@@ -72,8 +72,24 @@
     "osis": {
       "type": "string"
     },
-    "usfmOrOsis": {
-      "anyOf": [{ "$ref": "#/$defs/usfm" }, { "$ref": "#/$defs/osis" }]
+    "biblicalReference": {
+      "type": "object",
+      "properties": {
+        "reference": {
+          "anyOf": [{ "$ref": "#/$defs/usfm" }, { "$ref": "#/$defs/osis" }]
+        },
+        "parts": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "verse": { "type": "number" },
+              "part": { "type": "string", "enum": ["a", "b", "c", "d", "e"] },
+              "regex": { "type": "string", "format": "regex" }
+            }
+          }
+        }
+      }
     }
   }
 }
