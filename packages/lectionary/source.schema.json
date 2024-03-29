@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "http://lectio.github.io/source.schema.json",
+  "$id": "https://raw.githubusercontent.com/hennessyevan/lectio/main/packages/lectionary/source.schema.json",
   "title": "Ordo Source Schema",
   "description": "All sources should adhere to this schema.",
 
