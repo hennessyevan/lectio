@@ -53,11 +53,13 @@
       }
     }
   },
-  "nxCloudAccessToken": "NjNjYjgzN2QtZmVkZi00YmQzLThjNjQtMGY2YmNlNWI1ZjU3fHJlYWQtd3JpdGU=",
   "targetDefaults": {
     "@nx/esbuild:esbuild": {
       "cache": true,
       "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "build": {
       "inputs": ["production", "^production"]
     }
   }

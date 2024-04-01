@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@ionic/react':
+    specifier: ^7.8.2
+    version: 7.8.2(react-dom@18.2.0)(react@18.2.0)
   '@radix-ui/react-icons':
     specifier: ^1.3.0
     version: 1.3.0(react@18.2.0)
@@ -68,6 +71,9 @@ dependencies:
   tailwindcss-animate:
     specifier: ^1.0.7
     version: 1.0.7(tailwindcss@3.2.7)
+  temporal-polyfill:
+    specifier: ^0.2.3
+    version: 0.2.3
   tslib:
     specifier: ^2.3.0
     version: 2.6.2
@@ -2106,6 +2112,27 @@ packages:
     resolution: {integrity: sha512-6EwiSjwWYP7pTckG6I5eyFANjPhmPjUX9JRLUSfNPC7FX7zK9gyZAfUEaECL6ALTpGX5AjnBq3C9XmVWPitNpw==}
     dev: true
 
+  /@ionic/core@7.8.2:
+    resolution: {integrity: sha512-1Iwe4XSaEYD0u7U/AnnKYNRXmPxx/doTl6pExXq/nlEd7q0AykRkPEy5rClqrQcJOrgFogAx1FwSObfgm0xnNw==}
+    dependencies:
+      '@stencil/core': 4.14.0
+      ionicons: 7.3.1
+      tslib: 2.6.2
+    dev: false
+
+  /@ionic/react@7.8.2(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-ZeVBsCNNqiLS9Bjr0NVAknhStv4x3GpgQxRZG8Nf/98R1pRdbmq75bZC5Sg/zk0KfHJPfXy/Rsb+8LklYyu8Nw==}
+    peerDependencies:
+      react: '>=16.8.6'
+      react-dom: '>=16.8.6'
+    dependencies:
+      '@ionic/core': 7.8.2
+      ionicons: 7.3.1
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+      tslib: 2.6.2
+    dev: false
+
   /@istanbuljs/schema@0.1.3:
     resolution: {integrity: sha512-ZXRY4jNvVgSVQ8DL3LTcakaAtXwTVUxE81hslsyD2AtoXW/wVob10HkOJ1X/pAlcI7D+2YoZKg5do8G/w6RYgA==}
     engines: {node: '>=8'}
@@ -3667,6 +3694,12 @@ packages:
 
   /@sqlite.org/sqlite-wasm@3.45.1-build1:
     resolution: {integrity: sha512-1EgshFNhVeBtZ9KtQPm3PzzJ2CtpmXAq2DAPywy7WZ3gOK6p5n8TY+M+mBMpQCF5cLqrdNFb3Kp9uNie9rUAHw==}
+    hasBin: true
+    dev: false
+
+  /@stencil/core@4.14.0:
+    resolution: {integrity: sha512-+s0u/KsNolXZ7tC2hEMgMA3jaNaqOhZvYKwSzjQbc0Wv+cB481Isxzo7ifgEWRYqsJzNSyqhO6cyu/EJrGGTdg==}
+    engines: {node: '>=16.0.0', npm: '>=7.10.0'}
     hasBin: true
     dev: false
 
@@ -6960,6 +6993,12 @@ packages:
       loose-envify: 1.4.0
     dev: false
 
+  /ionicons@7.3.1:
+    resolution: {integrity: sha512-1boG4EQTBBpQ4/0PU60Yi78Iw/k8iNtKu9c0NmsbzHGnWAcwpiovG9Wi/rk5UlF+DC+CR4XDCxKo91YqvAxkww==}
+    dependencies:
+      '@stencil/core': 4.14.0
+    dev: false
+
   /is-arguments@1.1.1:
     resolution: {integrity: sha512-8Q7EARjzEnKpt/PCD7e1cgUS0a6X8u5tdSiMqXhojOdoV9TsMsiO+9VLC5vAmO8N7/GmXn7yjR8qnA6bVAEzfA==}
     engines: {node: '>= 0.4'}
@@ -9197,6 +9236,16 @@ packages:
     resolution: {integrity: sha512-aoBAniQmmwtcKp/7BzsH8Cxzv8OL736p7v1ihGb5e9DJ9kTwGWHrQrVB5+lfVDzfGrdRzXch+ig7LHaY1JTOrg==}
     engines: {node: '>=8'}
     dev: true
+
+  /temporal-polyfill@0.2.3:
+    resolution: {integrity: sha512-7ZJRc7wq/1XjrOQYkkNpgo2qfE9XLrUU8D/DS+LAC/T0bYqZ46rW6dow0sOTXTPZS4bwer8bD/0OyuKQBfA3yw==}
+    dependencies:
+      temporal-spec: 0.2.0
+    dev: false
+
+  /temporal-spec@0.2.0:
+    resolution: {integrity: sha512-r1AT0XdEp8TMQ13FLvOt8mOtAxDQsRt2QU5rSWCA7YfshddU651Y1NHVrceLANvixKdf9fYO8B/S9fXHodB7HQ==}
+    dev: false
 
   /tempy@0.6.0:
     resolution: {integrity: sha512-G13vtMYPT/J8A4X2SjdtBTphZlrp1gKv6hZiOjw14RCWg6GbHuQBGtjlx75xLbYV/wEc0D7G5K4rxKP/cXk8Bw==}

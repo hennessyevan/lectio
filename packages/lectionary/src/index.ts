@@ -1,1 +1,1 @@
-export * from './lib/lectionary';
+export * from './lectionary'

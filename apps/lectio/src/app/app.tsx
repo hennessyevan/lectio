@@ -9,12 +9,12 @@ import {
 } from '@lectio/ui'
 import { useQuery } from '@tanstack/react-query'
 import { and, eq } from 'drizzle-orm'
-import { useState } from 'react'
 import { db } from '../db'
 import { books } from '../db/books'
 import { verses } from '../db/verses'
 import { useLiturgicalDay } from '../hooks/useLiturgicalDay'
 import { useLocalStorage } from '../hooks/useLocalStorage'
+import { TEXT_COLORS } from '../components/constants'
 
 async function getVerse({
   queryKey,
@@ -68,6 +68,11 @@ export function App() {
     },
   })
 
+  const textColor =
+    TEXT_COLORS[
+      (today?.colors.at(0) as keyof typeof TEXT_COLORS) ?? TEXT_COLORS.BLACK
+    ]
+
   return (
     <div className="space-y-6 p-10 pb-16 block">
       <div className="space-y-0.5">
@@ -76,8 +81,8 @@ export function App() {
       </div>
       <Separator className="my-6" />
       <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
-        <aside className="lg:w-1/5 flex flex-col gap-5">
-          {today?.id}
+        <aside className="lg:w-1/5 flex flex-col gap-5 strok">
+          <span className={textColor}>{today?.name}</span>
           <Select
             value={String(currentBook)}
             onValueChange={(value) => setCurrentBook(+value)}
