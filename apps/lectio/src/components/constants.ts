@@ -6,6 +6,6 @@ export const TEXT_COLORS: Record<Color, string> = {
   PURPLE: 'text-purple-500',
   GOLD: 'text-yellow-500',
   ROSE: 'text-rose-500',
-  BLACK: 'text-black',
-  WHITE: 'text-black',
+  BLACK: 'text-foreground',
+  WHITE: 'text-foreground',
 } as const

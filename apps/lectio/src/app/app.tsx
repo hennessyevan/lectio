@@ -9,7 +9,7 @@ import {
 } from '@lectio/ui'
 import { useQuery } from '@tanstack/react-query'
 import { and, eq } from 'drizzle-orm'
-import { db } from '../db'
+import { db, importBible, useBibleTranslation } from '../db'
 import { books } from '../db/books'
 import { verses } from '../db/verses'
 import { useLiturgicalDay } from '../hooks/useLiturgicalDay'
@@ -19,7 +19,7 @@ import { TEXT_COLORS } from '../components/constants'
 async function getVerse({
   queryKey,
 }: {
-  queryKey: [type: string, book: number, chapter: number]
+  queryKey: [type: string, book: number, chapter: number, translation: string]
 }) {
   const [, book, chapter] = queryKey
 
@@ -31,9 +31,12 @@ async function getVerse({
   return data
 }
 
+const translations = import.meta.glob('../../../../packages/bibles/*.sqlite')
+
 export function App() {
   const { today } = useLiturgicalDay({})
 
+  const [currentTranslation, setTranslation] = useBibleTranslation()
   const [currentBook, setCurrentBook] = useLocalStorage<string | number>(
     'book',
     10
@@ -41,12 +44,12 @@ export function App() {
   const [chapter, setChapter] = useLocalStorage<string | number>('chapter', 1)
 
   const verseQuery = useQuery({
-    queryKey: ['verse', +currentBook, +chapter],
+    queryKey: ['verse', +currentBook, +chapter, currentTranslation],
     queryFn: getVerse,
   })
 
   const booksQuery = useQuery({
-    queryKey: ['books'],
+    queryKey: ['books', currentTranslation],
     queryFn: async () => {
       const data = await db.select().from(books).all()
 
@@ -55,7 +58,7 @@ export function App() {
   })
 
   const chaptersQuery = useQuery({
-    queryKey: ['chapters', +currentBook],
+    queryKey: ['chapters', +currentBook, currentTranslation],
     queryFn: async () => {
       const data = await db
         .select()
@@ -76,13 +79,34 @@ export function App() {
   return (
     <div className="space-y-6 p-10 pb-16 block">
       <div className="space-y-0.5">
-        <h2 className="text-2xl font-bold tracking-tight">NRSVCE</h2>
+        <h2 className="text-2xl font-bold tracking-tight uppercase">
+          {currentTranslation}
+        </h2>
         <p className="text-muted-foreground">Read the bible offline</p>
       </div>
       <Separator className="my-6" />
       <div className="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">
         <aside className="lg:w-1/5 flex flex-col gap-5 strok">
           <span className={textColor}>{today?.name}</span>
+          <Select
+            value={currentTranslation}
+            onValueChange={(value) => setTranslation(value)}
+          >
+            <Label>Translation</Label>
+            <SelectTrigger className="w-[180px]">
+              <SelectValue placeholder="Select a chapter" />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.keys(translations)
+                .map((key) => /\/(\w+)\.sqlite/.exec(key)?.[1])
+                .filter(Boolean)
+                .map((translation) => (
+                  <SelectItem key={translation} value={translation}>
+                    {translation}
+                  </SelectItem>
+                ))}
+            </SelectContent>
+          </Select>
           <Select
             value={String(currentBook)}
             onValueChange={(value) => setCurrentBook(+value)}
