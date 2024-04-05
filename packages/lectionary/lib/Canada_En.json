@@ -1,17 +1,18 @@
 {
-  "$schema": "../source.schema.json",
-  "data": [
-    {
-      "year": "A",
-      "season": "ORDINARY_TIME",
-      "days": [
-        {
-          "Day": "Friday",
-          "First Reading": {
-            "parts": [{ "part": "a", "regex": "/", "verse": "GEN 3:1-8" }]
-          }
-        }
-      ]
-    }
-  ]
+	"$schema": "https://raw.githubusercontent.com/hennessyevan/lectio/main/packages/lectionary/source.schema.json",
+	"data": [
+		{
+			"year": "A",
+			"season": "ORDINARY_TIME",
+			"days": [
+				{
+					"Day": "Friday",
+					"First Reading": {
+						"reference": "GEN 3:1-8",
+						"parts": [{ "part": "a", "regex": "/", "verse": "GEN 3:1-8" }]
+					}
+				}
+			]
+		}
+	]
 }

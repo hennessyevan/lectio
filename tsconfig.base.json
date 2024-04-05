@@ -1,24 +1,24 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["ES2023", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@lectio/bibles": ["packages/bibles/src/index.ts"],
-      "@lectio/lectionary": ["packages/lectionary/src/index.ts"],
-      "@lectio/ui": ["packages/ui/src/index.ts"],
-      "@lectio/ui/*": ["packages/ui/src/*"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+	"compileOnSave": false,
+	"compilerOptions": {
+		"rootDir": ".",
+		"sourceMap": true,
+		"declaration": false,
+		"moduleResolution": "node",
+		"emitDecoratorMetadata": true,
+		"experimentalDecorators": true,
+		"target": "es2015",
+		"module": "esnext",
+		"lib": ["ES2023", "dom"],
+		"skipLibCheck": true,
+		"skipDefaultLibCheck": true,
+		"baseUrl": ".",
+		"paths": {
+			"@lectio/bibles": ["packages/bibles/src/index.ts"],
+			"@lectio/lectionary": ["packages/lectionary/src/index.ts"],
+			"@lectio/ui": ["packages/ui/src/index.ts"],
+			"@lectio/ui/*": ["packages/ui/src/*"]
+		}
+	},
+	"exclude": ["node_modules", "tmp"]
 }

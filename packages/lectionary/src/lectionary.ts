@@ -1,3 +1,3 @@
 export function lectionary(): string {
-  return 'lectionary';
+	return 'lectionary'
 }

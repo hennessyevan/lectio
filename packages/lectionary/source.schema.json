@@ -1,121 +1,121 @@
 {
-  "$schema": "http://json-schema.org/draft-07/schema#",
-  "title": "Ordo Source Schema",
-  "description": "All sources should adhere to this schema.",
+	"$schema": "http://json-schema.org/draft-07/schema#",
+	"title": "Ordo Source Schema",
+	"description": "All sources should adhere to this schema.",
 
-  "type": "object",
-  "properties": {
-    "id": {
-      "type": "string",
-      "description": "The unique identifier for this source."
-    },
-    "name": {
-      "type": "string",
-      "description": "The name of the source."
-    },
-    "url": {
-      "type": "string",
-      "description": "The URL of the source."
-    },
-    "lastUpdated": {
-      "type": "string",
-      "format": "date-time",
-      "description": "The date and time this source was last updated."
-    },
-    "data": {
-      "type": "array",
-      "items": {
-        "type": "object",
-        "required": ["year", "season", "days"],
-        "properties": {
-          "year": {
-            "type": "string",
-            "description": "The liturgical year.",
-            "enum": ["A", "B", "C", "I", "II"]
-          },
-          "season": {
-            "type": "string",
-            "description": "The liturgical season.",
-            "enum": ["ADVENT", "CHRISTMAS", "ORDINARY_TIME", "LENT", "EASTER"]
-          },
+	"type": "object",
+	"properties": {
+		"id": {
+			"type": "string",
+			"description": "The unique identifier for this source."
+		},
+		"name": {
+			"type": "string",
+			"description": "The name of the source."
+		},
+		"url": {
+			"type": "string",
+			"description": "The URL of the source."
+		},
+		"lastUpdated": {
+			"type": "string",
+			"format": "date-time",
+			"description": "The date and time this source was last updated."
+		},
+		"data": {
+			"type": "array",
+			"items": {
+				"type": "object",
+				"required": ["year", "season", "days"],
+				"properties": {
+					"year": {
+						"type": "string",
+						"description": "The liturgical year.",
+						"enum": ["A", "B", "C", "I", "II"]
+					},
+					"season": {
+						"type": "string",
+						"description": "The liturgical season.",
+						"enum": ["ADVENT", "CHRISTMAS", "ORDINARY_TIME", "LENT", "EASTER"]
+					},
 
-          "days": {
-            "type": "array",
-            "items": {
-              "type": "object",
-              "required": [
-                "Week",
-                "Day",
-                "First Reading",
-                "Responsorial Psalm",
-                "Gospel"
-              ],
-              "properties": {
-                "Week": {
-                  "type": "number",
-                  "minimum": 1,
-                  "maximum": 34
-                },
-                "Day": {
-                  "type": "string",
-                  "enum": [
-                    "Monday",
-                    "Tuesday",
-                    "Wednesday",
-                    "Thursday",
-                    "Friday",
-                    "Saturday",
-                    "Sunday"
-                  ]
-                },
-                "First Reading": {
-                  "$ref": "#/$defs/biblicalReference"
-                },
-                "Responsorial Psalm": {
-                  "$ref": "#/$defs/biblicalReference"
-                },
-                "Second Reading": {
-                  "$ref": "#/$defs/biblicalReference"
-                },
-                "Gospel": {
-                  "$ref": "#/$defs/biblicalReference"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
+					"days": {
+						"type": "array",
+						"items": {
+							"type": "object",
+							"required": [
+								"Week",
+								"Day",
+								"First Reading",
+								"Responsorial Psalm",
+								"Gospel"
+							],
+							"properties": {
+								"Week": {
+									"type": "number",
+									"minimum": 1,
+									"maximum": 34
+								},
+								"Day": {
+									"type": "string",
+									"enum": [
+										"Monday",
+										"Tuesday",
+										"Wednesday",
+										"Thursday",
+										"Friday",
+										"Saturday",
+										"Sunday"
+									]
+								},
+								"First Reading": {
+									"$ref": "#/$defs/biblicalReference"
+								},
+								"Responsorial Psalm": {
+									"$ref": "#/$defs/biblicalReference"
+								},
+								"Second Reading": {
+									"$ref": "#/$defs/biblicalReference"
+								},
+								"Gospel": {
+									"$ref": "#/$defs/biblicalReference"
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	},
 
-  "$defs": {
-    "usfm": {
-      "type": "string",
-      "pattern": "^[A-Z1-4]{3}(-[A-Z1-4]{3})? ?[a-z0-9\\-:]*$"
-    },
-    "osis": {
-      "type": "string",
-      "pattern": "^([1-3][A-Z][a-z]+\\.\\d+\\.\\d+)(-[1-3][A-Z][a-z]+\\.\\d+\\.\\d+)?$"
-    },
-    "referenceId": {
-      "anyOf": [{ "$ref": "#/$defs/usfm" }, { "$ref": "#/$defs/osis" }]
-    },
-    "biblicalReference": {
-      "type": "object",
-      "properties": {
-        "reference": { "$ref": "#/$defs/referenceId" },
-        "parts": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "verse": { "$ref": "#/$defs/referenceId" },
-              "part": { "type": "string", "enum": ["a", "b", "c", "d", "e"] },
-              "regex": { "type": "string", "format": "regex" }
-            }
-          }
-        }
-      }
-    }
-  }
+	"$defs": {
+		"usfm": {
+			"type": "string",
+			"pattern": "^[A-Z1-4]{3}(-[A-Z1-4]{3})? ?[a-z0-9\\-:]*$"
+		},
+		"osis": {
+			"type": "string",
+			"pattern": "^([1-3][A-Z][a-z]+\\.\\d+\\.\\d+)(-[1-3][A-Z][a-z]+\\.\\d+\\.\\d+)?$"
+		},
+		"referenceId": {
+			"anyOf": [{ "$ref": "#/$defs/usfm" }, { "$ref": "#/$defs/osis" }]
+		},
+		"biblicalReference": {
+			"type": "object",
+			"properties": {
+				"reference": { "$ref": "#/$defs/referenceId" },
+				"parts": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"properties": {
+							"verse": { "$ref": "#/$defs/referenceId" },
+							"part": { "type": "string", "enum": ["a", "b", "c", "d", "e"] },
+							"regex": { "type": "string", "format": "regex" }
+						}
+					}
+				}
+			}
+		}
+	}
 }

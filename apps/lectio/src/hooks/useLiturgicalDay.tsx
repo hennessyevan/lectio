@@ -8,14 +8,14 @@ import { Canada_En } from '@romcal/calendar.canada'
 const romcal = new Romcal({ localizedCalendar: Canada_En })
 
 export function useLiturgicalDay({
-  date = Temporal.Now.plainDateISO(),
+	date = Temporal.Now.plainDateISO(),
 }: { date?: Temporal.PlainDate } = {}) {
-  const { data: calendar } = useQuery({
-    queryKey: ['liturgicalDay'],
-    queryFn: async () => romcal.generateCalendar(),
-  })
+	const { data: calendar } = useQuery({
+		queryKey: ['liturgicalDay'],
+		queryFn: async () => romcal.generateCalendar(),
+	})
 
-  const today = calendar?.[date.toString()]?.[0]
+	const today = calendar?.[date.toString()]?.[0]
 
-  return { calendar, today }
+	return { calendar, today }
 }

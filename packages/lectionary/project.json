@@ -1,21 +1,21 @@
 {
-  "name": "lectionary",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "packages/lectionary/src",
-  "projectType": "library",
-  "targets": {
-    "build": {
-      "executor": "@nx/esbuild:esbuild",
-      "outputs": ["{options.outputPath}"],
-      "options": {
-        "outputPath": "dist/packages/lectionary",
-        "main": "packages/lectionary/src/index.ts",
-        "tsConfig": "packages/lectionary/tsconfig.lib.json",
-        "assets": ["packages/lectionary/*.md"],
-        "generatePackageJson": true,
-        "format": ["cjs"]
-      }
-    }
-  },
-  "tags": []
+	"name": "lectionary",
+	"$schema": "../../node_modules/nx/schemas/project-schema.json",
+	"sourceRoot": "packages/lectionary/src",
+	"projectType": "library",
+	"targets": {
+		"build": {
+			"executor": "@nx/esbuild:esbuild",
+			"outputs": ["{options.outputPath}"],
+			"options": {
+				"outputPath": "dist/packages/lectionary",
+				"main": "packages/lectionary/src/index.ts",
+				"tsConfig": "packages/lectionary/tsconfig.lib.json",
+				"assets": ["packages/lectionary/*.md"],
+				"generatePackageJson": true,
+				"format": ["cjs"]
+			}
+		}
+	},
+	"tags": []
 }
