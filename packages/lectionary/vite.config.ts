@@ -13,6 +13,10 @@ export default defineConfig({
 	//  plugins: [ nxViteTsPaths() ],
 	// },
 
+	define: {
+		'import.meta.vitest': 'undefined',
+	},
+
 	test: {
 		globals: true,
 		cache: { dir: '../../node_modules/.vitest' },

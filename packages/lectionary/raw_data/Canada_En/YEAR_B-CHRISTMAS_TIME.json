@@ -1,0 +1,89 @@
+[
+  {
+    "Week": "2",
+    "Day": "Sunday",
+    "First Reading": "Gen 15:1-6; 17:3b-5, 15-16; 21:1-7 ++",
+    "Responsorial Psalm": "Ps 105:1-2, 3-4, 5-6, 8-9",
+    "Second Reading": "Heb 11:8, 11-12, 17-19",
+    "Gospel": "Luke 2:22-40 \n , 25-27, 34-35, 39-40 ++"
+  },
+  {
+    "Week": "3",
+    "Day": "Sunday",
+    "First Reading": "Sir 24:1-4, 8-12",
+    "Responsorial Psalm": "Ps 147:12-13, 14-15, 19-20",
+    "Second Reading": "Eph 1:3-6, 15-19 ++",
+    "Gospel": "John 1:1-18, 9-14"
+  },
+  {
+    "Week": "4",
+    "Day": "Sunday",
+    "First Reading": "Isa 55:1-11",
+    "Responsorial Psalm": "Isa 12:2-3, 4bcd, 5-6",
+    "Second Reading": "1 John 5:1-9",
+    "Gospel": "Mark 1:7-11"
+  },
+  {
+    "id": "vigil_of_christmas",
+    "First Reading": "Isa 62:1-5",
+    "Responsorial Psalm": "Ps 89:3-4, 15-16, 26+28",
+    "Second Reading": "Acts 13:16-17, 22-25",
+    "Gospel": "Matt 1:1-25 or 1:18-25"
+  },
+  {
+    "id": "christmas_during_the_night",
+    "First Reading": "Isa 9:2-4, 6-7",
+    "Responsorial Psalm": "Ps 96:1-2, 3-4, 11-12, 13",
+    "Second Reading": "Titus 2:11-14",
+    "Gospel": "Luke 2:1-16 ++"
+  },
+  {
+    "id": "christmas_at_dawn",
+    "First Reading": "Isa 62:11-12",
+    "Responsorial Psalm": "Ps 97:1-2, 5-6, 11-12",
+    "Second Reading": "Titus 3:4-7",
+    "Gospel": "Luke 2:15-20"
+  },
+  {
+    "id": "nativity_of_the_lord",
+    "First Reading": "Isa 52:7-10",
+    "Responsorial Psalm": "Ps 98:1, 2-3a, 3b-4, 5-6",
+    "Second Reading": "Heb 1:1-6",
+    "Gospel": "John 1:1-18 or 1:1-5, 9-14"
+  },
+  {
+    "id": "holy_family_of_jesus_mary_and_joseph",
+    "First Reading": "Gen 15:1-6; 17:3b-5, 15-16; 21:1-7 ++",
+    "Responsorial Psalm": "Ps 105:1-2, 3-4, 5-6, 8-9",
+    "Second Reading": "Heb 11:8, 11-12, 17-19",
+    "Gospel": "Luke 2:22-40&nbsp;\n  or 2:22, 25-27, 34-35, 39-40 ++"
+  },
+  {
+    "id": "mary_mother_of_god",
+    "First Reading": "Num 6:22-27",
+    "Responsorial Psalm": "Ps 67:1-2, 4-5, 6-7",
+    "Second Reading": "Gal 4:4-7",
+    "Gospel": "Luke 2:16-21"
+  },
+  {
+    "id": "second_sunday_after_christmas",
+    "First Reading": "Sir 24:1-4, 8-12",
+    "Responsorial Psalm": "Ps 147:12-13, 14-15, 19-20",
+    "Second Reading": "Eph 1:3-6, 15-19 ++",
+    "Gospel": "John 1:1-18, 9-14"
+  },
+  {
+    "id": "epiphany_of_the_lord",
+    "First Reading": "Isa 60:1-6",
+    "Responsorial Psalm": "Ps 72:1-2, 7-8, 10-11, 12-13",
+    "Second Reading": "Eph 3:2-3a, 5-6",
+    "Gospel": "Matt 2:1-12"
+  },
+  {
+    "id": "baptism_of_the_lord",
+    "First Reading": "Isa 55:1-11",
+    "Responsorial Psalm": "Isa 12:2-3, 4bcd, 5-6",
+    "Second Reading": "1 John 5:1-9",
+    "Gospel": "Mark 1:7-11"
+  }
+]

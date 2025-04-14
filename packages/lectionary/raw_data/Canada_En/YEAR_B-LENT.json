@@ -1,0 +1,63 @@
+[
+  {
+    "id": "ash_wednesday",
+    "First Reading": "Joel 2:12-18",
+    "Responsorial Psalm": "Ps 51:1-2, 3-4a, 10-11, 12+15",
+    "Second Reading": "2 Cor 5:20-6:2",
+    "Gospel": "Matt 6:1-6, 16-18"
+  },
+  {
+    "Week": "1",
+    "Day": "Sunday",
+    "First Reading": "Gen 9:8-15",
+    "Responsorial Psalm": "Ps 25:4-5a, 6+7b, 8-9",
+    "Second Reading": "1 Pet 3:18-22",
+    "Gospel": "Mark 1:12-15"
+  },
+  {
+    "Week": "2",
+    "Day": "Sunday",
+    "First Reading": "Gen 22:1-2, 9-13, 15-18",
+    "Responsorial Psalm": "Ps 116:10+15, 16-17, 18-19",
+    "Second Reading": "Rom 8:31b-35, 37 ++",
+    "Gospel": "Mark 9:2-10"
+  },
+  {
+    "Week": "3",
+    "Day": "Sunday",
+    "First Reading": "Exod 20:1-17",
+    "Responsorial Psalm": "Ps 19:7, 8, 9, 10",
+    "Second Reading": "1 Cor 1:18, 22-25 ++",
+    "Gospel": "John 2:13-25"
+  },
+  {
+    "Week": "4",
+    "Day": "Sunday",
+    "First Reading": "2 Chr 36:14-17a, 19-23 ++",
+    "Responsorial Psalm": "Ps 137:1-2, 3-4, 5-6",
+    "Second Reading": "Eph 2:4-10",
+    "Gospel": "John 3:14-21"
+  },
+  {
+    "Week": "5",
+    "Day": "Sunday",
+    "First Reading": "Jer 31:31-34",
+    "Responsorial Psalm": "Ps 51:1-2, 10-11, 12-13",
+    "Second Reading": "Heb 5:7-9",
+    "Gospel": "John 12:20-33"
+  },
+  {
+    "id": "palm_sunday_of_the_passion_of_the_lord",
+    "First Reading": "Isa 50:4-7",
+    "Responsorial Psalm": "Ps 22:7-8, 16-17, 18-19, 22-23",
+    "Second Reading": "Phil 2:6-11",
+    "Gospel": "Proc.: Mark 11:1-10 or John 12:12-16\n \n  Mark 14:1-15:47"
+  },
+  {
+    "id": "chrism_mass",
+    "First Reading": "Isa 61:1-3a, 6a, 8b-9",
+    "Responsorial Psalm": "Ps 89:20-21, 24+26, 27-28 ++",
+    "Second Reading": "Rev 1:4-8 ++",
+    "Gospel": "Luke 4:16-21"
+  }
+]

@@ -1,9 +1,13 @@
 {
-	"compilerOptions": {
-		"baseUrl": ".",
-		"paths": {
-			"@lectio/ui/": ["packages/ui/src/index.ts"],
-			"@lectio/ui/*": ["packages/ui/src/*"]
-		}
+	  "extends": "./tsconfig.base.json",
+	  "files": [], // intentionally empty
+	  "references": [
+	    // All projects in the repository
+	    {
+	      "path": "./packages/parser"
+	    },
+	    {
+	      "path": "./packages/lectionary"
+	    }
+	  ]
 	}
-}

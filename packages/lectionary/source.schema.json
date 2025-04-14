@@ -1,6 +1,6 @@
 {
 	"$schema": "http://json-schema.org/draft-07/schema#",
-	"title": "Ordo Source Schema",
+	"title": "Lectionary Source Schema",
 	"description": "All sources should adhere to this schema.",
 
 	"type": "object",
@@ -19,15 +19,18 @@
 		},
 		"lastUpdated": {
 			"type": "string",
-			"format": "date-time",
 			"description": "The date and time this source was last updated."
 		},
 		"data": {
 			"type": "array",
 			"items": {
 				"type": "object",
-				"required": ["year", "season", "days"],
+				"required": ["first_reading", "responsorial_psalm", "gospel"],
 				"properties": {
+					"romcalId": {
+						"type": "string",
+						"description": "The unique identifier for this entry in the Romcal database."
+					},
 					"year": {
 						"type": "string",
 						"description": "The liturgical year.",
@@ -36,52 +39,36 @@
 					"season": {
 						"type": "string",
 						"description": "The liturgical season.",
-						"enum": ["ADVENT", "CHRISTMAS", "ORDINARY_TIME", "LENT", "EASTER"]
+						"enum": [
+							"ADVENT",
+							"CHRISTMAS_TIME",
+							"ORDINARY_TIME",
+							"LENT",
+							"EASTER"
+						]
 					},
-
-					"days": {
-						"type": "array",
-						"items": {
-							"type": "object",
-							"required": [
-								"Week",
-								"Day",
-								"First Reading",
-								"Responsorial Psalm",
-								"Gospel"
-							],
-							"properties": {
-								"Week": {
-									"type": "number",
-									"minimum": 1,
-									"maximum": 34
-								},
-								"Day": {
-									"type": "string",
-									"enum": [
-										"Monday",
-										"Tuesday",
-										"Wednesday",
-										"Thursday",
-										"Friday",
-										"Saturday",
-										"Sunday"
-									]
-								},
-								"First Reading": {
-									"$ref": "#/$defs/biblicalReference"
-								},
-								"Responsorial Psalm": {
-									"$ref": "#/$defs/biblicalReference"
-								},
-								"Second Reading": {
-									"$ref": "#/$defs/biblicalReference"
-								},
-								"Gospel": {
-									"$ref": "#/$defs/biblicalReference"
-								}
-							}
-						}
+					"week": {
+						"type": "number",
+						"minimum": 1,
+						"maximum": 34
+					},
+					"day": {
+						"type": "number",
+						"description": "ISO 8601 day of the week.",
+						"minimum": 1,
+						"maximum": 7
+					},
+					"first_reading": {
+						"$ref": "#/$defs/biblicalReference"
+					},
+					"responsorial_psalm": {
+						"$ref": "#/$defs/biblicalReference"
+					},
+					"second_reading": {
+						"$ref": "#/$defs/biblicalReference"
+					},
+					"gospel": {
+						"$ref": "#/$defs/biblicalReference"
 					}
 				}
 			}
@@ -89,29 +76,39 @@
 	},
 
 	"$defs": {
-		"usfm": {
-			"type": "string",
-			"pattern": "^[A-Z1-4]{3}(-[A-Z1-4]{3})? ?[a-z0-9\\-:]*$"
-		},
-		"osis": {
-			"type": "string",
-			"pattern": "^([1-3][A-Z][a-z]+\\.\\d+\\.\\d+)(-[1-3][A-Z][a-z]+\\.\\d+\\.\\d+)?$"
-		},
-		"referenceId": {
-			"anyOf": [{ "$ref": "#/$defs/usfm" }, { "$ref": "#/$defs/osis" }]
-		},
 		"biblicalReference": {
 			"type": "object",
 			"properties": {
-				"reference": { "$ref": "#/$defs/referenceId" },
-				"parts": {
+				"originalReference": {
+					"type": "string",
+					"description": "The original reference."
+				},
+				"reference": {
+					"description": "The reference in object format",
 					"type": "array",
 					"items": {
 						"type": "object",
 						"properties": {
-							"verse": { "$ref": "#/$defs/referenceId" },
-							"part": { "type": "string", "enum": ["a", "b", "c", "d", "e"] },
-							"regex": { "type": "string", "format": "regex" }
+							"book": { "type": "string" },
+							"chapter": { "type": "number" },
+							"verses": {
+								"type": "array",
+								"items": { "type": "number", "minimum": 1, "maximum": 176 }
+							},
+							"parts": {
+								"type": "array",
+								"items": {
+									"type": "object",
+									"properties": {
+										"verse": { "type": "number", "minimum": 1, "maximum": 176 },
+										"part": {
+											"type": "string",
+											"enum": ["a", "b", "c", "d", "e"]
+										},
+										"regex": { "type": "string", "format": "regex" }
+									}
+								}
+							}
 						}
 					}
 				}
